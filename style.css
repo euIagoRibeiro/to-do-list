@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+    --primary-font: "DM Sans", sans-serif;
+    --color-white: #fff;
+    --background-color: #dac3b3e0;
+    --color-green1: #0FA697;
+    --color-green2: #75B9B3;
+    --color-green3: #568B86;
+    --color-green4: #4a7773;;
+    --color-brown: #d89f74;
+    --color-brown2: #fce2d2;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.500)), url(images/background-image.png);
+    background-repeat: no-repeat;
+    background-size: cover; /* Mantém a imagem coberta */
+    background-position: center;
+    background-attachment: fixed; /* Faz o background fixo */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-white);
+    font-family: var(--primary-font);
+    font-weight: normal;
+    overflow: hidden;
+    padding: 0.8rem 1rem 1rem 1rem; /* Adicionado para espaçamento em telas menores */
+}
+
+ul {
+    list-style-type: none;
+}
+
+.main-content {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 0% 0% 1% 0%;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.title-icon {
+    width: 5vw;
+}
+
+.content {
+    background-color: var(--background-color);
+    padding: 3%;
+    border-radius: 2rem;
+    margin: 0% 0% 15% 0%;
+}
+
+.content-add-task {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#input-new-task, #btn-new-task {
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding: 1rem;
+}
+
+#input-new-task {
+    background-color: transparent;
+    border: 2px solid var(--color-green1);
+    border-radius: 2rem;
+    width: 20rem;
+    font-family: var(--primary-font);
+}
+
+#input-new-task::placeholder {
+    color: rgb(56, 56, 56);
+    font-family: var(--primary-font);
+}
+
+#btn-new-task {
+    background-color: var(--color-green2);
+    border-radius: 2rem;
+    width: 50px;
+    height: 50px;
+    transition: .4s;
+}
+
+#btn-new-task:hover {
+    background-color: var(--color-green3);
+}
+
+.content-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#btn-todos, #btn-concluidas, #btn-pendentes {
+    outline: none;
+    border: none;
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: var(--color-green2);
+    transition: .4s;
+    font-family: var(--primary-font);
+    font-size: 1rem;
+}
+
+#btn-todos:hover, #btn-concluidas:hover, #btn-pendentes:hover {
+    background-color: var(--color-green3);
+}
+
+#to-do-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+#to-do-list > li {
+    font-size: 1.2rem; /* Reduzido para 1.2rem */
+    text-transform: capitalize;
+}
+
+/* Estilo do item da tarefa */
+.task-item {
+    display: flex; /* Usar flexbox */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: flex-start; /* Alinha à esquerda */
+    background-color: var(--color-brown);
+    padding: 5%;
+    border-radius: 2rem;
+
+}
+
+/* Estilo do texto da tarefa */
+.task-text {
+    flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
+    margin-left: 10px; /* Espaçamento entre a checkbox e o texto */
+}
+
+/* Estilo das ações da tarefa */
+.task-actions {
+    display: flex; /* Usar flexbox para os botões */
+    gap: 10px; /* Espaço entre os botões */
+}
+
+/* Esconde a checkbox original */
+.task-check {
+    display: none; /* Esconde a checkbox */
+}
+
+/* Estilo para a checkbox personalizada */
+.custom-checkbox {
+    display: inline-block;
+    width: 20px; /* Largura da checkbox */
+    height: 20px; /* Altura da checkbox */
+    border: 2px solid var(--color-brown2);/* Borda da checkbox */
+    background-color: var(--color-brown2);
+    border-radius: 2rem; /* Bordas arredondadas */
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px; /* Espaçamento à direita */
+    transition: background-color 0.3s, border-color 0.3s; /* Transição suave */
+}
+
+/* Checkbox customizada quando marcada */
+.checked {
+    background-color: var(--color-green1); /* Cor de fundo quando marcada */
+    border-color: var(--color-brown2); /* Cor da borda quando marcada */
+}
+
+/* Botões de filtro */
+.content-buttons {
+    margin-top: 10%;
+}
+
+.content-buttons button {
+    margin-right: 10px;
+}
+
+.content-body {
+    margin: 10% 0% 0% 0%;
+    max-height: 200px; /* Ajuste a altura máxima conforme necessário */
+    overflow-y: auto; /* Adiciona a rolagem vertical */
+    padding: 10px; /* Espaçamento interno */
+}
+
+/* Estilo do item da tarefa quando selecionado */
+.selected {
+    background-color: #4CAF50; /* Cor de fundo verde quando selecionado */
+    border: 2px solid #3e8e41; /* Borda verde escura */
+}
+
+.done, .edit, .delete {
+    background-color: var(--color-brown2);
+    border:none;
+    width: 30px;
+    height: 30px;
+    border-radius: 2rem;
+}
+
+.task-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.list-title {
+    font-family: var(--primary-font);
+    font-weight: 200;
+    color: black;
+    margin: 0% 0% 2% 0%;
+}
+
+.completed-task {
+    color: var(--color-green4);
+}
+
+/* Media query para telas menores que 425px */
+@media (max-width: 425px) {
+    body {
+        overflow: scroll;
+    }
+
+    .main-content {
+        margin: 10% 0% 10% 0%;
+    }
+
+    .title-icon {
+        width: 10vw;
+    }
+
+    #input-new-task {
+        width: 100%; /* Faz o input ocupar toda a largura disponível */
+        padding: 0.5rem; /* Ajusta o padding */
+    }
+
+    #input-new-task::placeholder {
+        font-size: 0.9rem;
+    }
+
+    #btn-new-task {
+        width: 48px;
+        height: 48px;
+    }
+
+    .content {
+        padding: 5% 8% 0% 8%; /* Reduz o padding da content */
+        border-radius: 1rem; /* Ajusta o border-radius */
+    }
+
+    .content-buttons {
+        flex-direction: column; /* Muda a direção para coluna */
+        gap: 0.5rem; /* Ajusta o espaço entre os botões */
+    }
+
+    #btn-todos, #btn-concluidas, #btn-pendentes {
+        width: 50%;
+        padding: 0.5rem; /* Ajusta o padding */
+    }
+
+    .task-item {
+        flex-direction: column; /* Muda a direção para coluna */
+        align-items: flex-start; /* Alinha os itens à esquerda */
+        padding: 5% 10% 5% 10%;
+    }
+
+    .task-text {
+        margin-left: 0; /* Remove o espaço à esquerda */
+    }
+
+    #to-do-list > li {
+        display: flex;
+        flex-direction: row;
+        font-size: 1rem; /* Reduzido para 1rem em telas menores */
+    }
+    .done, .edit, .delete {
+        background-color: var(--color-brown2);
+        align-self: center;
+        border:none;
+        width: 25px;
+        height: 25px;
+        border-radius: 2rem;
+    }
+}
